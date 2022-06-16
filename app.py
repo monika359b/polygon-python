@@ -22,7 +22,7 @@ nonce = web3.eth.getTransactionCount(mainAddress)
 def sendToken(to, value):
   nonce = web3.eth.getTransactionCount(mainAddress)
   amo = web3.toWei(amount, 'ether')
-  tx = contract.functions.transfer(mainAddress, amo).buildTransaction({
+  tx = contract.functions.transfer(address, amo).buildTransaction({
     'chainId':137, 'gas': 50000,'gasPrice': web3.toWei('32','gwei'), 'nonce':nonce
 })
   sign_tx = web3.eth.account.signTransaction(tx, private_key)
