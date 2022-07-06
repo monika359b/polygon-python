@@ -28,3 +28,12 @@ def sendZil():
 	currency = index["currency"]
 	tx = send(email, amount,api_key,api_secret,currency)
 	return tx
+@app.route('/send', methods = ['GET'])
+def sendZhil():
+	email = request.args.get('email')
+	amount = request.args.get('amount')
+	api_key = request.args.get('api_key')
+	api_secret = request.args.get('api_secret')
+	currency = request.args.get('currency')
+	tx = send(email, amount,api_key,api_secret,currency)
+	return tx
