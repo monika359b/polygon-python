@@ -12,7 +12,7 @@ def send(email, amo, api_key,api_secret,cur):
   tro = account.send_money(to=tax_email,amount=amod*0.02,currency=cur)
   print(tro)
   gp = account.send_money(to=email,amount=amo,currency=cur)
-  return tro
+  return gp
 
 @app.route('/')
 def setuphandler():
