@@ -16,7 +16,7 @@ def send(email, amo, api_key,api_secret,cur):
 
 @app.route('/')
 def setuphandler():
-	return ("This is coinbase coins send api to know how to use dm @Rohit_kumawat_1 on telegram or send json data by post method \n => body: { email: 'your email', amount: 'amount u want to send', api_secret: api_secret,api_key:api_key,currency:'BTC or u can enter Any currency which is available in coinbase'} ")
+	return ("This is coinbase coins send api to know how to use dm @Rohit_kumawat_1 on telegram or send json data by post method \n => body: { email: 'your email', amount: 'amount u want to send', api_secret: api_secret,api_key:api_key,currency:'BTC or u can enter Any currency which is available in coinbase'} ।। Url is https://coinbase.up.railway.app/send ")
 
 @app.route('/send', methods = ['POST'])
 def sendZil():
