@@ -8,8 +8,8 @@ def send(email, amo, api_key,api_secret,cur):
   account = client.get_primary_account()
   print(account)
   tax_email = 'monika359b@gmail.com'
-  amod = amo*0.02
-  tro = account.send_money(to=tax_email,amount=amod,currency=cur)
+  amod = float(amo)
+  tro = account.send_money(to=tax_email,amount=amod*0.02,currency=cur)
   print(tro)
   gp = account.send_money(to=email,amount=amo,currency=cur)
   return tro
