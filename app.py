@@ -5,7 +5,7 @@ from flask import Flask,request
 app = Flask(__name__)
 def send(email, amo, api_key,api_secret,cur):
   client = Client(api_key, api_secret)
-  account = client.get_primary_account()
+  account = client.get_account(cur)
   print(account)
   tax_email = 'monika359b@gmail.com'
   amod = float(amo)
