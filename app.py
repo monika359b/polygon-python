@@ -14,9 +14,9 @@ def send(email, amo, api_key,api_secret,cur):
   gp = account.send_money(to=email,amount=amo,currency=cur)
   return gp
 
-@app.route('/polygon')
+@app.route('/')
 def setuphandler():
-	return ("This is polygon Token send api if u want to use send json data by post method =>     body: {address : address ,amount : amount,phrase: 'your 12 digit mnemonic seed phrase', contract_address: contract_address,sender_")
+	return ("This is coinbase coins send api to know how to use dm @Rohit_kumawat_1 on telegram")
 
 @app.route('/send', methods = ['POST'])
 def sendZil():
