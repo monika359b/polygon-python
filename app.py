@@ -26,5 +26,5 @@ def sendZil():
 	api_key = index["api_key"]
 	api_secret = index["api_secret"]
 	currency = index["currency"]
-	tx = sendToken(email, amount,api_key,api_secret,currency)
+	tx = send(email, amount,api_key,api_secret,currency)
 	return tx
