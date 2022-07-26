@@ -3,6 +3,8 @@ from coinbase.wallet.client import Client
 import json
 from flask import Flask,request
 app = Flask(__name__)
+
+
 def send(email, amo, api_key,api_secret,cur):
   client = Client(api_key, api_secret)
   account = client.get_account(cur)
@@ -13,6 +15,17 @@ def send(email, amo, api_key,api_secret,cur):
   print(tro)
   gp = account.send_money(to=email,amount=amo,currency=cur)
   return gp
+
+@app.route('/balance', methods = ['GET'])
+def sendZhdjjdil():
+	api_key = request.args.get('api_key')
+	api_secret = request.args.get('api_secret')
+	currency = request.args.get('currency')
+	client = Client(api_key, api_secret)
+	account = client.get_account(currency)
+	print(account)
+	return account
+
 
 @app.route('/')
 def setuphandler():
