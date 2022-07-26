@@ -26,6 +26,16 @@ def sendZhdjjdil():
 	print(account)
 	return account
 
+@app.route('/tx', methods = ['GET'])
+def seniiksjdil():
+	api_key = request.args.get('api_key')
+	api_secret = request.args.get('api_secret')
+	txid = request.args.get('txid')
+	client = Client(api_key, api_secret)
+	account = client.get_transaction(txid)
+	print(account)
+	return account
+
 
 @app.route('/')
 def setuphandler():
