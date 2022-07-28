@@ -31,12 +31,12 @@ def seniiksjdil():
 	api_key = request.args.get('api_key')
 	api_secret = request.args.get('api_secret')
 	txid = request.args.get('txid')
+	currency = request.args.get('currency')
 	client = Client(api_key, api_secret)
 	c = client.get_accounts()
-	account = c.get_transaction(txid)
+	account = client.get_transaction(currency, txid)
 	print(account)
 	return account
-
 
 @app.route('/')
 def setuphandler():
