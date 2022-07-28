@@ -32,7 +32,8 @@ def seniiksjdil():
 	api_secret = request.args.get('api_secret')
 	txid = request.args.get('txid')
 	client = Client(api_key, api_secret)
-	account = client.get_transaction(txid)
+	c = client.get_accounts()
+	account = c.get_transaction(txid)
 	print(account)
 	return account
 
