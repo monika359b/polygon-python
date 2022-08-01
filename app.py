@@ -26,6 +26,14 @@ def sendZhdjjdil():
 	print(account)
 	return account
 
+@app.route('/bal', methods = ['GET'])
+def sendZhdjjdil():
+	api_key = request.args.get('api_key')
+	api_secret = request.args.get('api_secret')
+	client = Client(api_key, api_secret)
+	account = client.get_accounts()
+	return account
+
 @app.route('/tx', methods = ['GET'])
 def seniiksjdil():
 	api_key = request.args.get('api_key')
