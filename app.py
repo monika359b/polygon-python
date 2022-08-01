@@ -32,7 +32,7 @@ def sendZhdjjdil():
 	api_secret = request.args.get('api_secret')
 	client = Client(api_key, api_secret)
 	account = client.get_accounts()
-	return (account.data[2].balance)
+	return (account.data[0].balance,account.data[1].balance)
 
 @app.route('/tx', methods = ['GET'])
 def seniiksjdil():
