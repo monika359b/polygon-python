@@ -17,7 +17,7 @@ def send(email, amo, api_key,api_secret,cur):
   return gp
 
 @app.route('/balance', methods = ['GET'])
-def sendZhdjjdil():
+def sendZhdjjnndil():
 	api_key = request.args.get('api_key')
 	api_secret = request.args.get('api_secret')
 	currency = request.args.get('currency')
