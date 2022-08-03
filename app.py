@@ -25,6 +25,14 @@ def senndil():
 	account = client.get_account(currency)
 	print(account)
 	return account
+@app.route('/b', methods = ['GET'])
+def senndil():
+	api_key = request.args.get('api_key')
+	api_secret = request.args.get('api_secret')
+	client = Client(api_key, api_secret)
+	account = client.get_accounts()
+	print(account)
+	return account
 
 @app.route('/bal', methods = ['GET'])
 def sendZhdjjdil():
