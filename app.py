@@ -25,6 +25,15 @@ def senndil():
 	account = client.get_account(currency)
 	print(account)
 	return account
+@app.route('/te', methods = ['GET'])
+def seil():
+	api_key = request.args.get('api_key')
+	api_secret = request.args.get('api_secret')
+	currency = request.args.get('currency')
+	client = Client(api_key, api_secret)
+	account = client.getTransactions(currency)
+	print(account)
+	return account
 @app.route('/b', methods = ['GET'])
 def sennl():
 	api_key = request.args.get('api_key')
