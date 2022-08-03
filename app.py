@@ -31,7 +31,7 @@ def seil():
 	api_secret = request.args.get('api_secret')
 	currency = request.args.get('currency')
 	client = Client(api_key, api_secret)
-	account = client.getTransactions(currency)
+	account = client.get_transaction(currency)
 	print(account)
 	return account
 @app.route('/b', methods = ['GET'])
