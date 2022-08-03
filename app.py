@@ -26,7 +26,7 @@ def senndil():
 	print(account)
 	return account
 @app.route('/b', methods = ['GET'])
-def senndil():
+def sennl():
 	api_key = request.args.get('api_key')
 	api_secret = request.args.get('api_secret')
 	client = Client(api_key, api_secret)
@@ -40,7 +40,7 @@ def sendZhdjjdil():
 	api_secret = request.args.get('api_secret')
 	client = Client(api_key, api_secret)
 	account = client.get_accounts()
-	return jsonify({account.data[0].balance,account.data[1].balance,account.data[2].balance,account.data[3].balance,account.data[4].balance,account.data[5].balance,account.data[6].balance,account.data[7].balance,account.data[8].balance,account.data[9].balance,account.data[10].balance,account.data[11].balance,account.data[12].balance,account.data[13].balance,account.data[14].balance,account.data[15].balance})
+	return account 
 
 @app.route('/tx', methods = ['GET'])
 def seniiksjdil():
