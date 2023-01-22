@@ -10,15 +10,17 @@ async def main():
         tokens = json.load(f)
     for token in tokens:
         bot_token = token["token"]
+        apikey = tokens["apikey"]
+        apihash = tokens["apihash"]
         chat_id = int(bot_token.split(':')[0])
-        asyncio.create_task(run_client(bot_token, chat_id))
+        asyncio.create_task(run_client(bot_token, chat_id,apikey,apihash))
     while True:
         await asyncio.sleep(10)
 
-async def run_client(bot_token, chat_id):
+async def run_client(bot_token, chat_id,apikey,apihash):
     while True:
         try:
-            client = TelegramClient('Sot', "7243983", "e1bd137a37da9f95ecd2b206a8c8be48")
+            client = TelegramClient('Sot',apikey, apihash)
             await client.start(bot_token=bot_token)
 
             @client.on(events.NewMessage(chats=chat_id))
