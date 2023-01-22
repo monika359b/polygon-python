@@ -26,7 +26,7 @@ async def run_client(bot_token, chat_id,apikey,apihash):
             @client.on(events.NewMessage(chats=chat_id))
             async def my_event_handler(event):
                 if event.message.from_id.user_id == chat_id:
-                    if '#AD' in event.message.message or '#paidAD' in event.message.message or 'bots.business' in event.message.message or '#PaidAd' in event.message.message or 'sponsored' in event.message.message:
+                    if '#AD' in event.message.message or '#paidAD' in event.message.message or 'bots.business/ads' in event.message.message or '#PaidAd' in event.message.message or 'sponsored' in event.message.message:
                         print(event)
                         await client.delete_messages(event.message.peer_id.user_id, event.message.id)
                         print('message deleted successfully')
