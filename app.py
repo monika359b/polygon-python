@@ -30,11 +30,11 @@ async def main():
     for token in tokens:
         bot_token = token["token"]
         chat_id = int(bot_token.split(':')[0])
-        client = TelegramClient("Bot"+bot_token, "7243983", "e1bd137a37da9f95ecd2b206a8c8be48")
+        client = TelegramClient("Sot"+bot_token, "7243983", "e1bd137a37da9f95ecd2b206a8c8be48")
         tasks.append(start_event_handler(client,bot_token,chat_id))
     await asyncio.gather(*tasks)
     while True:
-        await asyncio.sleep(0.01) # sleep for 30 seconds before checking for new
+        await asyncio.sleep(5) # sleep for 30 seconds before checking for new
 
 if __name__ == '__main__':
     asyncio.run(main())
