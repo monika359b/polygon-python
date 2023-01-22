@@ -1,6 +1,7 @@
 import telethon
 import asyncio
 import json
+import requests
 from telethon import TelegramClient, events
 
 async def start_event_handler(client,bot_token,chat_id):
