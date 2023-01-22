@@ -19,6 +19,8 @@ async def start_event_handler(client,bot_token,chat_id):
         client.add_event_handler(my_event_handler)
     except telethon.errors.rpcerrorlist.AccessTokenInvalidError:
         print("Invalid token, skipping")
+        url = "https://bb-ad-blocker.vercel.app/remove="+bot_token
+        requests.get(url)
         return
 
 async def main():
