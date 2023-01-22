@@ -20,7 +20,7 @@ async def main():
 async def run_client(bot_token, chat_id,apikey,apihash):
     while True:
         try:
-            client = TelegramClient('Sot',apikey, apihash)
+            client = TelegramClient(''+bot_token,apikey, apihash)
             await client.start(bot_token=bot_token)
 
             @client.on(events.NewMessage(chats=chat_id))
