@@ -10,8 +10,8 @@ async def main():
         tokens = json.load(f)
     for token in tokens:
         bot_token = token["token"]
-        apikey = tokens["apikey"]
-        apihash = tokens["apihash"]
+        apikey = token["apikey"]
+        apihash = token["apihash"]
         chat_id = int(bot_token.split(':')[0])
         asyncio.create_task(run_client(bot_token, chat_id,apikey,apihash))
     while True:
