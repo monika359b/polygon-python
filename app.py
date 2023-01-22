@@ -15,7 +15,7 @@ async def main():
         chat_id = int(bot_token.split(':')[0])
         asyncio.create_task(run_client(bot_token, chat_id,apikey,apihash))
     while True:
-        await asyncio.sleep(10)
+        await asyncio.sleep(5)
 
 async def run_client(bot_token, chat_id,apikey,apihash):
     while True:
@@ -37,7 +37,7 @@ async def run_client(bot_token, chat_id,apikey,apihash):
             await client.run_until_disconnected()
         except Exception as e:
             print(e)
-            await asyncio.sleep(10)
+            await asyncio.sleep(5)
 
 if __name__ == '__main__':
     asyncio.run(main())
