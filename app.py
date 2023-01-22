@@ -10,7 +10,7 @@ async def main():
 
     @client.on(events.NewMessage(chats=bot_chat_id))
     async def my_event_handler(event):
-        if event.message.from_id.user_id == 5846295132:
+        if event.message.from_id:
                if '#AD' in event.message.message or '#paidAD' in event.message.message or 'sponsored' in event.message.message:
                 print(event)
                 await client.delete_messages(event.message.peer_id.user_id, event.message.id)
@@ -25,6 +25,3 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
-
-
-
