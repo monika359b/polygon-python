@@ -35,9 +35,15 @@ async def run_client(bot_token, chat_id,apikey,apihash):
                         pass
             client.add_event_handler(my_event_handler)
             await client.run_until_disconnected()
+        except telethon.errors.rpcerrorlist.AccessTokenInvalidError:
+            # Send a request to a URL to remove the invalid token
+            requests.get(f'example.org/remove={bot_token}&apikey={apikey}&{apihash}')
+            # Wait for some time before trying again
+            await asyncio.sleep(5)
         except Exception as e:
             print(e)
             await asyncio.sleep(5)
 
 if __name__ == '__main__':
     asyncio.run(main())
+
