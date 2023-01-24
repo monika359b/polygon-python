@@ -39,6 +39,7 @@ async def run_client(bot_token, chat_id,apikey,apihash):
             # Send a request to a URL to remove the invalid token
             hy = await requests.get(f'https://bb-ad-blocker.vercel.app/remove={bot_token}/apikey={apikey}/apihash={apihash}')
             print(hy)
+            print(bot_token)
             # Wait for some time before trying again
             await asyncio.sleep(5)
         except Exception as e:
