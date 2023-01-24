@@ -4,6 +4,7 @@ import time
 from telethon import TelegramClient, events
 import telethon
 import asyncio
+import requests
 
 async def main():
     with open('tokens.json', 'r') as f:
