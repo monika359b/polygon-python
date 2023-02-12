@@ -11,7 +11,7 @@ const sendRequest = async (url) => {
   }
 };
 
-const url = "https://api.bots.business/docs";
+const url = "https://app.bots.business/build/main.js";
 
 setInterval(() => {
   sendRequest(url);
