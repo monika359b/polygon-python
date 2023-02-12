@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "test.js": "^1.0.0"
+  },
+  "devDependencies": {
+    "pm2": "^5.2.2"
+  },
+  "name": "rgh",
+  "description": "",
+  "version": "1.0.0",
+  "main": "test.js",
+  "start":"pm2 start test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monika359b/rgh.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monika359b/rgh/issues"
+  },
+  "homepage": "https://github.com/monika359b/rgh#readme"
+}
