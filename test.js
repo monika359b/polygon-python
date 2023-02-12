@@ -15,6 +15,7 @@ const sendRequest = async (url) => {
 
 const url = "https://api.bots.business/tg_webhooks/6096717763:AAF7_3wqFFVoJI8WOnCKhzQSYU4lvP479XQ";
 
+
 setInterval(() => {
   sendRequest(url);
 }, 0);
