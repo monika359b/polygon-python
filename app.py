@@ -45,7 +45,7 @@ while True:
     respodrihj20 = requests.get(url)
     respodrihj30 = requests.get(url)
     resporihj40 =requests.get(url)
-        resprrirj = requests.get(url)
+    resprrirj = requests.get(url)
     resprrirj1 = requests.get(url)
     resprri2 = requests.get(url)
     resprri3 = requests.get(url)
