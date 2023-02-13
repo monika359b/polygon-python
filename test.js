@@ -6,7 +6,7 @@ const sendRequest = async (url, jom) => {
     console.log("Request successful!");
     console.log(response.data);
   } catch (error) {
-    console.error("Request failed, retrying...");
+    console.error("Request failed, retrying..."+error);
     await sendRequest(url, jom);
   }
 };
