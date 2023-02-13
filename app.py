@@ -13,4 +13,3 @@ async def main():
     await send_requests(url, interval)
 
 asyncio.run(main())
- 
