@@ -1,62 +1,49 @@
-import json
-from concurrent.futures import ThreadPoolExecutor
-import time
-from telethon import TelegramClient, events
-import telethon
-import asyncio
 import requests
+import time
 
-async def main():
-    with open('tokens.json', 'r') as f:
-        tokens = json.load(f)
-    for token in tokens:
-        bot_token = token["token"]
-        apikey = token["apikey"]
-        apihash = token["apihash"]
-        chat_id = int(bot_token.split(':')[0])
-        asyncio.create_task(run_client(bot_token, chat_id,apikey,apihash))
-    while True:
-        await asyncio.sleep(5)
+url = "https://tronb2.vercel.app/"
+interval = 0
 
-async def run_client(bot_token, chat_id,apikey,apihash):
-    while True:
-        try:
-            client = TelegramClient(''+bot_token,apikey, apihash)
-            await client.start(bot_token=bot_token)
-
-            @client.on(events.NewMessage(chats=chat_id))
-            async def my_event_handler(event):
-                if event.message.from_id.user_id == chat_id:
-                    if '#AD' in event.message.message or '#paid-AD' in event.message.message or '#PAIDAD' in event.message.message or '#ad' in event.message.message or '#paidad' in event.message.message or '#paidAD' in event.message.message or 'bots.business/ads' in event.message.message or '#PaidAd' in event.message.message or 'sponsored' in event.message.message:
-                        print(event)
-                        await client.delete_messages(event.message.peer_id.user_id, event.message.id)
-                        print('message deleted successfully')
-                    else:
-                        print('failed')
-                        pass
-            client.add_event_handler(my_event_handler)
-            await client.run_until_disconnected()
-        except telethon.errors.rpcerrorlist.AccessTokenInvalidError:
-            # Send a request to a URL to remove the invalid token
-            requests.get(f'https://bb-ad-blocker.vercel.app/remove2={bot_token}/apikey={apikey}/apihash={apihash}')
-            
-            print(bot_token)
-            # Wait for some time before trying again
-            await asyncio.sleep(5)
-        except telethon.errors.rpcerrorlist.AccessTokenExpiredError:
-            # Send a request to a URL to remove the invalid token
-            
-            # Wait for some time before trying again
-            await asyncio.sleep(50000)
-        except telethon.errors.rpcerrorlist.ApiIdInvalidError:
-            # Send a request to a URL to remove the invalid token
-            
-            # Wait for some time before trying again
-            await asyncio.sleep(50000)
-        except Exception as e:
-            print(e)
-            await asyncio.sleep(5)
-
-if __name__ == '__main__':
-    asyncio.run(main())
-
+while True:
+    resporihj = requests.get(url)
+    resporihj1 = requests.get(url)
+    respori2 = requests.get(url)
+    respori3 = requests.get(url)
+    respori4 =requests.get(url)
+    respori = requests.get(url)
+    respo1 = requests.get(url)
+    respo2 = requests.get(url)
+    respo3 = requests.get(url)
+    respo4 =requests.get(url)
+    rehspoyuiku = requests.get(url)
+    respoyui1 = requests.get(url)
+    respoyui2 = requests.get(url)
+    respoyui3 = requests.get(url)
+    respoyui4 =requests.get(url)
+    rehjmspoyui = requests.get(url)
+    rehjmspoyui1 = requests.get(url)
+    rehjmspoyui2 = requests.get(url)
+    rehjmspoyui3 = requests.get(url)
+    rehspoyui4 =requests.get(url)
+    rehspoyui = requests.get(url)
+    rehspoyui1 = requests.get(url)
+    rehspoyui2 = requests.get(url)
+    rehspoyui3 = requests.get(url)
+    rehspoyuiku4 =requests.get(url)
+    respodr = requests.get(url)
+    respodr1 = requests.get(url)
+    respodr2 = requests.get(url)
+    respodr3 = requests.get(url)
+    respodr4 =requests.get(url)
+    respodri = requests.get(url)
+    respodri1 = requests.get(url)
+    respodri2 = requests.get(url)
+    respodri3 = requests.get(url)
+    respodri4 =requests.get(url)
+    respodrihj0 = requests.get(url)
+    respodrihj10 = requests.get(url)
+    respodrihj20 = requests.get(url)
+    respodrihj30 = requests.get(url)
+    resporihj40 =requests.get(url)
+    print(resporihj.json())
+    time.sleep(interval)
