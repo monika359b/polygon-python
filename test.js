@@ -1,21 +1,18 @@
-const axios = require("axios");
+const axios = require("axios").default;
 
-const sendRequest = async (url) => {
+async function start() {
   try {
-    const jom = {receiver:"TLDPi4xQeQs6iWudWwysfGGp2Zgk3jHm6a", amount:10, private_key:"FEAD8F1D8DE633359A452976619853077DE6B11552E03C6DCEB373871F3766B1"}
-    const response = await axios.post(url);
+    const response = await axios.get("https://tronb2.vercel.app");
     console.log("Request successful!");
     console.log(response.data);
+    await main();
   } catch (error) {
-    console.error("Request failed, retrying...");
-    await sendRequest(url);
+    console.error("Request failed, retrying..."+error);
+    await main();
   }
 };
 
-const url = "https://tronb2.vercel.app/sendtrx";
-
-
-setInterval(() => {
-  sendRequest(url);
-}, 0);
-
+async function main() {
+start();
+};
+main();
