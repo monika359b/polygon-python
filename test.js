@@ -1,28 +1,32 @@
 const axios = require("axios");
-
-const sendRequest = async (url, ipAddress) => {
+const https = require("https")
+const sendRequest = async (url) => {
   try {
-    const response = await axios.get(url, { proxy: { host: ipAddress, port: 8080 } });
+const options = {
+  url: 'https://tronb2.vercel.app/',
+  headers: {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive'
+  },
+  maxRedirects: 0,
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false
+  })
+};
+    const response = await axios(options);
     console.log("Request successful!");
     console.log(response.data);
   } catch (error) {
-    console.error(`Request failed, retrying with IP address ${ipAddress}...`, error);
-    const newIpAddress = getNextIpAddress();
-    await sendRequest(url, newIpAddress);
+    console.error("Request failed, retrying..."+error);
+    await sendRequest(url);
   }
 };
 
-const url = "https://tronb2.vercel.app";
-const ipAddresses = ["127.0.0.1", "127.0.0.2", "127.0.0.3"];
-let currentIpAddressIndex = 0;
+const url = "https://tronb2.vercel.app/";
 
-function getNextIpAddress() {
-  const ipAddress = ipAddresses[currentIpAddressIndex];
-  currentIpAddressIndex = (currentIpAddressIndex + 1) % ipAddresses.length;
-  return ipAddress;
-}
 
 setInterval(() => {
-  const ipAddress = getNextIpAddress();
-  sendRequest(url, ipAddress);
+  sendRequest(url);
 }, 0);
