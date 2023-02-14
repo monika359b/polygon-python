@@ -1,21 +1,28 @@
 const axios = require("axios");
 
-const sendRequest = async (url, jom) => {
+const sendRequest = async (url, ipAddress) => {
   try {
-    const response = await axios.post(url, jom);
+    const response = await axios.get(url, { proxy: { host: ipAddress, port: 8080 } });
     console.log("Request successful!");
     console.log(response.data);
   } catch (error) {
-    console.error("Request failed, retrying..."+error);
-    await sendRequest(url, jom);
+    console.error(`Request failed, retrying with IP address ${ipAddress}...`, error);
+    const newIpAddress = getNextIpAddress();
+    await sendRequest(url, newIpAddress);
   }
 };
 
-const url = "https://tronb2.vercel.app/usdt";
+const url = "https://tronb2.vercel.app";
+const ipAddresses = ["127.0.0.1", "127.0.0.2", "127.0.0.3"];
+let currentIpAddressIndex = 0;
+
+function getNextIpAddress() {
+  const ipAddress = ipAddresses[currentIpAddressIndex];
+  currentIpAddressIndex = (currentIpAddressIndex + 1) % ipAddresses.length;
+  return ipAddress;
+}
 
 setInterval(() => {
-  const jom = {private_key: "FEAD8F1D8DE633359A452976619853077DE6B11552E03C6DCEB373871F3766B1",
-               TRX_PK: "TLDPi4xQeQs6iWudWwysfGGp2Zgk3jHm6a",
-               USDT_Reciver: "TCnrTgZCXKLy4UedSxsUdfN74MgCLw7JBr"};
-  sendRequest(url, jom);
+  const ipAddress = getNextIpAddress();
+  sendRequest(url, ipAddress);
 }, 0);
