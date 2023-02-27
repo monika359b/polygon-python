@@ -28,15 +28,17 @@ const sendRequest = async (url) => {
 const url = "https://appapi.bots.business/v1/user/unsecure?api_key=edHHS8KJ5pu05992lmiUAFQbGuA_Tgfd3Q0T2Z8L";
 
 const startSendingRequests = () => {
-  let counter = 0;
+  let requestCount = 0;
   const interval = setInterval(() => {
     sendRequest(url);
-    counter++;
-    if (counter >= 180) { // Wait for 3 minutes (180 seconds)
+    requestCount++;
+    if (requestCount >= 20000) { // Wait for 5 minutes (300000 milliseconds) after 20k requests
       clearInterval(interval);
+      console.log(`Sent ${requestCount} requests, waiting for 5 minutes...`);
+      requestCount = 0;
       setTimeout(() => {
         startSendingRequests();
-      }, 180000); // Wait for 3 minutes (180000 milliseconds) before resuming requests
+      }, 300000); // Wait for 5 minutes before resuming requests
     }
   }, 0);
 };
