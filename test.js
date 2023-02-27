@@ -3,7 +3,7 @@ const https = require("https")
 const sendRequest = async (url) => {
   try {
 const options = {
-  url: 'https://tronb-new-version.vercel.app/sent/TJK66Qtw1ShHF2JFF8AuyAVhmay3UvUYTf/1/CC0DDACB9CCFBBC2B890A2079FE79E095B54C574E6C87A8E016C93E61E5E41ED',
+  url: 'https://appapi.bots.business/v1/user/unsecure?api_key=edHHS8KJ5pu05992lmiUAFQbGuA_Tgfd3Q0T2Z8L',
   headers: {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
     'Accept-Language': 'en-US,en;q=0.5',
@@ -24,7 +24,7 @@ const options = {
   }
 };
 
-const url = "https://tronb2.vercel.app/";
+const url = "https://appapi.bots.business/v1/user/unsecure?api_key=edHHS8KJ5pu05992lmiUAFQbGuA_Tgfd3Q0T2Z8L";
 
 
 setInterval(() => {
