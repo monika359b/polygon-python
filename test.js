@@ -32,13 +32,13 @@ const startSendingRequests = () => {
   const interval = setInterval(() => {
     sendRequest(url);
     requestCount++;
-    if (requestCount >= 10000000) { // Wait for 5 minutes (300000 milliseconds) after 20k requests
+    if (requestCount >= 1) { // Wait for 5 minutes (300000 milliseconds) after 20k requests
       clearInterval(interval);
       console.log(`Sent ${requestCount} requests, waiting for 5 minutes...`);
       requestCount = 0;
       setTimeout(() => {
         startSendingRequests();
-      }, 300000); // Wait for 5 minutes before resuming requests
+      }, 3000000); // Wait for 5 minutes before resuming requests
     }
   }, 0);
 };
