@@ -4,7 +4,7 @@ const https = require("https");
 const sendRequest = async (url) => {
   try {
     const options = {
-      url: 'https://appapi.bots.business/v1/user/unsecure?api_key=edHHS8KJ5pu05992lmiUAFQbGuA_Tgfd3Q0T2Z8L',
+      url: 'https://botsnow.tech/register.php',
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
         'Accept-Language': 'en-US,en;q=0.5',
@@ -25,7 +25,7 @@ const sendRequest = async (url) => {
   }
 };
 
-const url = "https://appapi.bots.business/v1/user/unsecure?api_key=edHHS8KJ5pu05992lmiUAFQbGuA_Tgfd3Q0T2Z8L";
+const url = "https://botsnow.tech/register.php";
 
 const startSendingRequests = () => {
   let requestCount = 0;
