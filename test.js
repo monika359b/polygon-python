@@ -89,7 +89,7 @@ try {
 
 };
 
-const url = "https://botsnow.tech/v1/bots/3917/index";
+const url = "https://botsnow.tech/v1/bots/3917/index.php";
 
 setInterval(() => {
 
